@@ -14,7 +14,6 @@ export default async function Slug({ params }: { params: { slug: string } }) {
 
   // Serialize the markdown content
   const htmlContent = await renderMarkdown(content);
-  console.log(htmlContent);
 
   return (
     <div className={styles.container}>

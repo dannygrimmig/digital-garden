@@ -19,6 +19,7 @@
     "@nx/jest": "19.5.2",
     "@nx/js": "19.5.2",
     "@nx/next": "19.5.2",
+    "@nx/plugin": "^19.5.2",
     "@nx/workspace": "19.5.2",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
