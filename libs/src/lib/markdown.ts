@@ -27,6 +27,7 @@ export interface BlogMetaData {
   title: string;
   author: string;
   date: string;
+  tags: string[];
 }
 
 const POSTS_PATH = join(process.cwd(), '_articles');
