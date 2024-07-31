@@ -9,7 +9,7 @@ export default async function Slug({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
   // Parse the markdown content
-  const articleMarkDownContent = getParsedFileContentBySlug(slug, POSTS_PATH);
+  const articleMarkDownContent = getParsedFileContentBySlug(`${slug}.md`);
   const { frontMatter, content } = articleMarkDownContent;
 
   // Serialize the markdown content
@@ -28,7 +28,7 @@ export default async function Slug({ params }: { params: { slug: string } }) {
 
 export async function generateStaticParams() {
   const paths = readdirSync(POSTS_PATH)
-    .map((path) => path.replace(/\.md/, ''))
+    .map((path) => path.replace(/\.md$/, ''))
     .map((slug) => ({ slug }));
 
   return paths;
