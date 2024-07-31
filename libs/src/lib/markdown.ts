@@ -6,11 +6,14 @@ import { format } from 'date-fns';
 
 const POSTS_PATH = join(process.cwd(), '_articles');
 
+const getFileContent = (fileName: string) =>
+  readFileSync(join(POSTS_PATH, fileName), 'utf8');
+
 export function getParsedFileContentBySlug(fileName: string): {
   frontMatter: FrontMatter;
   content: string;
 } {
-  const fileContent = readFileSync(join(POSTS_PATH, fileName), 'utf8');
+  const fileContent = getFileContent(fileName);
   const { data, content } = matter(fileContent);
 
   return {
@@ -40,7 +43,7 @@ export function getBlogMetaData(): BlogMetaData[] {
 }
 
 export function getBlogMetaDataByFileName(fileName: string): BlogMetaData {
-  const fileContent = readFileSync(join(POSTS_PATH, fileName), 'utf8');
+  const fileContent = getFileContent(fileName);
   const { data } = matter(fileContent);
 
   return {
