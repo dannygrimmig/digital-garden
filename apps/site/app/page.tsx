@@ -45,7 +45,7 @@ export default function Index() {
   );
 }
 
-export function BlogCard({ blog }: { blog: BlogMetaData }) {
+function BlogCard({ blog }: { blog: BlogMetaData }) {
   return (
     <Link href={`/articles/${blog.path}`}>
       <div className="h-full grid grid-cols-4 gap-2 hover:outline hover:outline-slate-800 rounded-md p-2">
@@ -59,7 +59,7 @@ export function BlogCard({ blog }: { blog: BlogMetaData }) {
   );
 }
 
-export function BlogCardDetails({ blog }: { blog: BlogMetaData }) {
+function BlogCardDetails({ blog }: { blog: BlogMetaData }) {
   return (
     <div className="flex flex-col justify-around gap-2 h-full p-2">
       <div className="flex flex-col gap-2">
@@ -73,13 +73,7 @@ export function BlogCardDetails({ blog }: { blog: BlogMetaData }) {
   );
 }
 
-export function BlogCardAuthor({
-  author,
-  date,
-}: {
-  author: string;
-  date: string;
-}) {
+function BlogCardAuthor({ author, date }: { author: string; date: string }) {
   return (
     <div className="flex gap-4 items-center">
       <div className="relative h-10 w-10">
