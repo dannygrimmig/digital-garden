@@ -18,7 +18,7 @@ export default async function Slug({ params }: { params: { slug: string } }) {
   return (
     <div className={styles.container}>
       <h1 className="text-4xl font-semibold">{frontMatter.title}</h1>
-      <h3 className="font-light">by {frontMatter.author.name}</h3>
+      <h3 className="font-light">by {frontMatter.author}</h3>
 
       {/* Render HTML content */}
       <div dangerouslySetInnerHTML={{ __html: htmlContent }} />

@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 export function getParsedFileContentBySlug(
   fileName: string,
   postsPath: string
-): { frontMatter: any; content: any } {
+): { frontMatter: FrontMatter; content: string } {
   const postFilePath = join(postsPath, `${fileName}.md`);
   const fileContent = readFileSync(postFilePath);
 
@@ -21,6 +21,13 @@ export function getParsedFileContentBySlug(
 
 export async function renderMarkdown(markdownContent: string) {
   return marked(markdownContent || '');
+}
+
+interface FrontMatter {
+  title?: string;
+  date?: string;
+  author?: string;
+  tags?: string[];
 }
 
 export interface BlogMetaData {
@@ -55,10 +62,10 @@ export function getBlogMetaDataByFileName(fileName: string): BlogMetaData {
 
   return {
     path: fileName.replace(/\.mdx?$/, ''), // Remove extension for slug usage
-    title: data.title || 'Untitled',
-    author: data.author || 'Unknown',
-    date: data.date || 'No date',
-    tags: data.tags || [],
+    title: data['title'] || 'Untitled',
+    author: data['author'] || 'Unknown',
+    date: data['date'] || 'No date',
+    tags: data['tags'] || [],
   };
 }
 
