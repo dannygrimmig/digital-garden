@@ -16,7 +16,7 @@ export default function Index() {
   const first3 = blogs.slice(0, 3);
 
   return (
-    <main className="md:grid grid-cols-5 p-2 sm:p-4 min-h-screen m-auto text-slate-800">
+    <main className="md:grid grid-cols-5 p-2 sm:p-4 min-h-[calc(100vh-74px)] m-auto text-slate-800">
       <div className="col-span-2 p-2">
         <Link href={`/articles/${mainArticle.path}`}>
           <div className="grid grid-rows-3 h-full hover:outline hover:outline-slate-800 rounded-md p-2">
@@ -48,10 +48,10 @@ export default function Index() {
 function BlogCard({ blog }: { blog: BlogMetaData }) {
   return (
     <Link href={`/articles/${blog.path}`}>
-      <div className="h-full grid grid-cols-4 gap-2 hover:outline hover:outline-slate-800 rounded-md p-2">
-        <div className="bg-gray-200 animate-pulse relative col-span-2 lg:col-span-1 rounded-md"></div>
+      <div className="h-full grid grid-cols-4 gap-2 sm:hover:outline hover:outline-slate-800 rounded-md p-2">
+        <div className="bg-gray-200 animate-pulse relative col-span-4 sm:col-span-2 lg:col-span-1 rounded-md min-h-40 sm:min-h-max"></div>
 
-        <div className="col-span-2 lg:col-span-3">
+        <div className="col-span-4 sm:col-span-2 lg:col-span-3">
           <BlogCardDetails blog={blog} />
         </div>
       </div>
