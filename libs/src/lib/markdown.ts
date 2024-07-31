@@ -2,6 +2,7 @@ import { readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import { format } from 'date-fns';
 
 export function getParsedFileContentBySlug(
   fileName: string,
@@ -38,6 +39,13 @@ export function getBlogMetaData(): BlogMetaData[] {
     return getBlogMetaDataByFileName(fileName);
   });
 
+  // Sort the blogMetaData by date
+  blogMetaData.sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return dateB - dateA; // For descending order; use dateA - dateB for ascending order
+  });
+
   return blogMetaData;
 }
 
@@ -52,4 +60,9 @@ export function getBlogMetaDataByFileName(fileName: string): BlogMetaData {
     date: data.date || 'No date',
     tags: data.tags || [],
   };
+}
+
+export function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  return format(date, 'MMMM dd, yyyy'); // Format as 'July 31, 2024'
 }

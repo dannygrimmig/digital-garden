@@ -2,6 +2,7 @@ import {
   BlogMetaData,
   getBlogMetaData,
   getBlogMetaDataByFileName,
+  formatDate,
 } from '@org/markdown';
 import Link from 'next/link';
 import profile from '../public/profile-image.png';
@@ -67,7 +68,7 @@ export function BlogCardDetails({ blog }: { blog: BlogMetaData }) {
         </p>
         <h3 className="font-bold text-xl">{blog.title}</h3>
       </div>
-      <BlogCardAuthor author={blog.author} date="April 17th, 2024" />
+      <BlogCardAuthor author={blog.author} date={blog.date} />
     </div>
   );
 }
@@ -86,7 +87,7 @@ export function BlogCardAuthor({
       </div>
       <div className="flex flex-col gap-2">
         <p>{author}</p>
-        <p className="text-xs">{date}</p>
+        <p className="text-xs">{formatDate(date)}</p>
       </div>
     </div>
   );
