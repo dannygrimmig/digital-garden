@@ -65,5 +65,7 @@
       "inputs": ["production", "^production"]
     }
   },
-  "neverConnectToCloud": true
+  "nxCloud": {
+    "neverConnectToCloud": true
+  }
 }
