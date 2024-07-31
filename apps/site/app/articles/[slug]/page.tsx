@@ -28,7 +28,7 @@ export default async function Slug({ params }: { params: { slug: string } }) {
 
 export async function generateStaticParams() {
   const paths = readdirSync(POSTS_PATH)
-    .map((path) => path.replace(/\.mdx?s/, ''))
+    .map((path) => path.replace(/\.md/, ''))
     .map((slug) => ({ slug }));
 
   return paths;

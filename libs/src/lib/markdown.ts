@@ -8,7 +8,7 @@ export function getParsedFileContentBySlug(
   fileName: string,
   postsPath: string
 ): { frontMatter: FrontMatter; content: string } {
-  const postFilePath = join(postsPath, `${fileName}`);
+  const postFilePath = join(postsPath, `${fileName}.md`);
   const fileContent = readFileSync(postFilePath);
 
   const { data, content } = matter(fileContent);
