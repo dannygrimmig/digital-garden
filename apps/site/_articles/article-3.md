@@ -1,5 +1,5 @@
 ---
-title: 'Whoa... I have written three article'
+title: 'Whoa... a Third Article!'
 exerpt: 'This is some good text to go in the subheading if i do say so myself'
 date: '2024-07-27'
 author: 'Danny Grimmig'

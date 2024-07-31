@@ -1,7 +1,96 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.articleContent {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #242424;
+  font-weight: lighter;
+}
+
+.articleContent h1,
+.articleContent h2,
+.articleContent h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.articleContent h1 {
+  font-size: 2rem;
+}
+
+.articleContent h2 {
+  font-size: 1.75rem;
+}
+
+.articleContent h3 {
+  font-size: 1.5rem;
+}
+
+.articleContent p {
+  margin-bottom: 1.5rem;
+}
+
+.articleContent ul,
+.articleContent ol {
+  margin-bottom: 1.5rem;
+}
+
+.articleContent li {
+  margin-bottom: 0.5rem;
+}
+
+.articleContent a {
+  color: #0070f3;
+  text-decoration: none;
+  border-bottom: 1px solid #0070f3;
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.articleContent a:hover {
+  color: #005bb5;
+  border-bottom: 1px solid #005bb5;
+}
+
+.articleContent blockquote {
+  padding: 1rem;
+  margin: 1.5rem 0;
+  background-color: #f0f0f0;
+  border-left: 4px solid #0070f3;
+  font-style: italic;
+}
+/* Styles for inline code */
+.articleContent code {
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+  font-family: 'Fira Code', monospace;
+  color: #618ac2;
+  font-size: 0.9rem;
+}
+
+/* Styles for code blocks */
+.articleContent pre {
+  background-color: #1e1e1e;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border: 1px solid #333;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Highlighting specific lines in code blocks */
+.articleContent .highlighted-line {
+  background-color: #2a2a2a;
+  border-left: 3px solid #007acc;
+  display: block;
+  margin: 0;
+  padding: 0.2rem;
+}
+
+
+.articleContent img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}

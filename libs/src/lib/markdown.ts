@@ -55,13 +55,14 @@ export function getBlogMetaDataByFileName(fileName: string): BlogMetaData {
   };
 }
 
-export function formatDate(dateString: string): string {
-  const date = new Date(dateString);
+export function formatDate(dateString?: string): string {
+  const date = new Date(dateString || '');
   return format(date, 'MMMM dd, yyyy'); // Format as 'July 31, 2024'
 }
 
 interface FrontMatter {
   title?: string;
+  exerpt?: string;
   date?: string;
   author?: string;
   tags?: string[];
