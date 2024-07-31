@@ -26,7 +26,7 @@ export default async function Slug({ params }: { params: { slug: string } }) {
         <p>{frontMatter.exerpt}</p>
       </header>
 
-      <section className="grid grid-cols-4 gap-2">
+      <section className="sm:grid grid-cols-4 gap-2">
         <div className="col-span-1 font-thin">
           <div className="p-4 border border-black rounded-md mb-4 ">
             <h2>Meta Data</h2>

@@ -64,5 +64,6 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     }
-  }
+  },
+  "neverConnectToCloud": true
 }
