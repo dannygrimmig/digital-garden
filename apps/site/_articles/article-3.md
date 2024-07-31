@@ -1,9 +1,9 @@
 ---
-title: 'Dynamic Routing'
+title: 'Whoa... I have written three article'
 exerpt: 'This is some good text to go in the subheading if i do say so myself'
-date: '2024-07-24T05:35:07.322Z'
-author: 
-    name: 'Danny Grimmig'
+date: '2024-07-23T05:35:07.322Z'
+author: 'Danny Grimmig'
+tags: ['react']
 ---
 
 My first article... lets see how this goes!

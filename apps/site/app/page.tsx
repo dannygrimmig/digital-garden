@@ -1,30 +1,42 @@
-import { BlogMetaData, getBlogMetaData } from '@org/markdown';
+import {
+  BlogMetaData,
+  getBlogMetaData,
+  getBlogMetaDataByFileName,
+} from '@org/markdown';
 import Link from 'next/link';
+import profile from '../public/profile-image.png';
+import Image from 'next/image';
 
 export default function Index() {
+  const mainArticle = getBlogMetaDataByFileName('digital_garden.md');
   const blogs: BlogMetaData[] = getBlogMetaData();
+
+  // derived
+  const first3 = blogs.slice(0, 3);
 
   return (
     <main className="md:grid grid-cols-5 p-2 sm:p-4 min-h-screen max-w-7xl m-auto">
       <div className="col-span-2 p-2">
-        <div className="grid grid-rows-3 h-full">
-          <div className="bg-gray-200 animate-pulse relative row-span-2 rounded-lg"></div>
+        <Link href={`/articles/${mainArticle.path}`}>
+          <div className="grid grid-rows-3 h-full">
+            <div className="bg-gray-200 animate-pulse relative row-span-2 rounded-lg"></div>
 
-          <div className="row-span-1">
-            <BlogCardDetails blog={largeblog} />
+            <div className="row-span-1">
+              <BlogCardDetails blog={mainArticle} />
+            </div>
           </div>
-        </div>
+        </Link>
       </div>
 
       <div className="col-span-3 p-2">
         <ul className="h-full flex flex-col gap-2">
-          {sampleBlogs.map((blog) => (
+          {first3.map((blog) => (
             <li key={blog.path} className="flex-1">
               <BlogCard blog={blog} />
             </li>
           ))}
-          <li className="italic font-semibold text-xs">
-            see all articles &gt;
+          <li className="underline italic font-semibold text-xs">
+            <Link href="/articles">see all articles &gt;</Link>
           </li>
         </ul>
       </div>
@@ -34,13 +46,15 @@ export default function Index() {
 
 export function BlogCard({ blog }: { blog: BlogMetaData }) {
   return (
-    <div className="h-full grid grid-cols-4 gap-2">
-      <div className="bg-gray-200 animate-pulse relative col-span-2 lg:col-span-1 rounded-lg"></div>
+    <Link href={`/articles/${blog.path}`}>
+      <div className="h-full grid grid-cols-4 gap-2">
+        <div className="bg-gray-200 animate-pulse relative col-span-2 lg:col-span-1 rounded-lg"></div>
 
-      <div className="col-span-2 lg:col-span-3">
-        <BlogCardDetails blog={blog} />
+        <div className="col-span-2 lg:col-span-3">
+          <BlogCardDetails blog={blog} />
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -67,7 +81,9 @@ export function BlogCardAuthor({
 }) {
   return (
     <div className="flex gap-4 items-center">
-      <div className="bg-gray-200 h-10 w-10 animate-pulse rounded-full border border-gray-500 outline outline-gray-500 outline-offset-2"></div>
+      <div className="relative h-10 w-10">
+        <Image alt="author" src={profile} fill className="rounded-full" />
+      </div>
       <div className="flex flex-col gap-2">
         <p>{author}</p>
         <p className="text-xs">{date}</p>
@@ -75,34 +91,3 @@ export function BlogCardAuthor({
     </div>
   );
 }
-
-const largeblog: BlogMetaData = {
-  path: '/path',
-  title: 'This Article Goes Front and Center',
-  author: 'Danny Grimmig',
-  date: 'July 31, 2024',
-  tags: ['golf'],
-};
-const sampleBlogs: BlogMetaData[] = [
-  {
-    path: '/path',
-    title: 'First Article in The List',
-    author: 'Danny Grimmig',
-    date: 'April 17th, 2024',
-    tags: ['web dev'],
-  },
-  {
-    path: '/path',
-    title: 'Article Numero Dos',
-    author: 'Danny Grimmig',
-    date: 'May 25th, 2024',
-    tags: ['react'],
-  },
-  {
-    path: '/path',
-    title: 'Whoa... I Have Written Three Articles',
-    author: 'Danny Grimmig',
-    date: 'December 25th, 2024',
-    tags: ['swe'],
-  },
-];

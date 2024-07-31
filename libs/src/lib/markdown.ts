@@ -35,16 +35,21 @@ export function getBlogMetaData(): BlogMetaData[] {
   const postFiles = readdirSync(POSTS_PATH);
 
   const blogMetaData = postFiles.map((fileName) => {
-    const fileContent = readFileSync(join(POSTS_PATH, fileName), 'utf8');
-    const { data } = matter(fileContent);
-
-    return {
-      path: fileName.replace(/\.mdx?$/, ''), // Remove extension for slug usage
-      title: data.title || 'Untitled',
-      author: data.author || 'Unknown',
-      date: data.date || 'No date',
-    };
+    return getBlogMetaDataByFileName(fileName);
   });
 
   return blogMetaData;
+}
+
+export function getBlogMetaDataByFileName(fileName: string): BlogMetaData {
+  const fileContent = readFileSync(join(POSTS_PATH, fileName), 'utf8');
+  const { data } = matter(fileContent);
+
+  return {
+    path: fileName.replace(/\.mdx?$/, ''), // Remove extension for slug usage
+    title: data.title || 'Untitled',
+    author: data.author || 'Unknown',
+    date: data.date || 'No date',
+    tags: data.tags || [],
+  };
 }
