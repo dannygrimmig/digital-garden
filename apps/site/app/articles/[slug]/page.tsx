@@ -4,6 +4,7 @@ import styles from './page.module.css';
 import { getParsedFileContentBySlug, renderMarkdown } from '@org/markdown';
 import { format } from 'date-fns';
 import { BlogCardAuthor } from '../../ui/BlogCard/BlogCard';
+import { Metadata } from 'next';
 
 const POSTS_PATH = join(process.cwd(), '_articles');
 
@@ -55,19 +56,9 @@ export default async function Slug({ params }: { params: { slug: string } }) {
   );
 }
 
-function MetaDataDetail({
-  label,
-  detail = '',
-}: {
-  label: string;
-  detail?: string;
-}) {
-  return (
-    <div>
-      <label className="text-xs font-bold">{label}</label>
-      <p className="">{detail}</p>
-    </div>
-  );
+function formatDate(dateString?: string): string {
+  const date = new Date(dateString || '');
+  return format(date, 'MMMM dd, yyyy'); // Format as 'July 31, 2024'
 }
 
 export async function generateStaticParams() {
@@ -78,7 +69,20 @@ export async function generateStaticParams() {
   return paths;
 }
 
-function formatDate(dateString?: string): string {
-  const date = new Date(dateString || '');
-  return format(date, 'MMMM dd, yyyy'); // Format as 'July 31, 2024'
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  // read route params
+  const { slug } = params;
+
+  // fetch data
+  const articleMarkDownContent = getParsedFileContentBySlug(`${slug}.md`);
+  const { frontMatter } = articleMarkDownContent;
+
+  return {
+    title: frontMatter.title,
+    description: frontMatter.exerpt,
+  };
 }
