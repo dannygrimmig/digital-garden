@@ -1,5 +1,3 @@
-'use client';
-
 import { BlogMetaData } from '@org/markdown';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -29,6 +27,7 @@ export function BlogCardDetails({ blog }: { blog: BlogMetaData }) {
         </p>
         <h3 className="font-light text-xl">{blog.title}</h3>
       </div>
+
       <BlogCardAuthor author={blog.author} date={blog.date} />
     </div>
   );
@@ -46,6 +45,7 @@ export function BlogCardAuthor({
       <div className="relative h-10 w-10">
         <Image alt="author" src={profile} fill className="rounded-full" />
       </div>
+
       <div className="flex flex-col gap-2">
         <p>{author}</p>
         <p className="text-xs">{formatDate(date)}</p>

@@ -33,7 +33,7 @@ export function Search({ blogs }: { blogs: BlogMetaData[] }) {
 
   return (
     <main className="p-2 sm:p-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
+      <header className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
         <input
           type="text"
           name="search"
@@ -42,6 +42,7 @@ export function Search({ blogs }: { blogs: BlogMetaData[] }) {
           className="border border-black flex-1 p-1"
           onChange={(e) => setSearch(e.target.value)}
         />
+
         <ul className="flex gap-2 items-center flex-wrap">
           {possibleTags.map((tag) => (
             <Tag
@@ -52,7 +53,7 @@ export function Search({ blogs }: { blogs: BlogMetaData[] }) {
             />
           ))}
         </ul>
-      </div>
+      </header>
 
       <ul className="md:grid grid-cols-2 gap-2">
         {filteredArticles.map((blog) => (
@@ -75,7 +76,7 @@ function Tag({
   onChange: (tag: string) => void;
 }) {
   return (
-    <div className="relative">
+    <li className="relative">
       <input
         type="checkbox"
         id={`tag-${tag}`}
@@ -91,7 +92,7 @@ function Tag({
       >
         {tag}
       </label>
-    </div>
+    </li>
   );
 }
 
