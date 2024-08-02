@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { BlogCard, BlogCardDetails } from './ui/BlogCard/BlogCard';
 
 export default function Index() {
-  const mainArticle = getBlogMetaDataByFileName('digital_garden.md');
+  const mainArticle = getBlogMetaDataByFileName('digital-garden.md');
   const blogs: BlogMetaData[] = getBlogMetaData();
 
   // derived
