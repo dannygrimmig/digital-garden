@@ -2,7 +2,6 @@ import { readdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
-import { format } from 'date-fns';
 
 const POSTS_PATH = join(process.cwd(), '_articles');
 
@@ -53,11 +52,6 @@ export function getBlogMetaDataByFileName(fileName: string): BlogMetaData {
     date: data['date'] || 'No date',
     tags: data['tags'] || [],
   };
-}
-
-export function formatDate(dateString?: string): string {
-  const date = new Date(dateString || '');
-  return format(date, 'MMMM dd, yyyy'); // Format as 'July 31, 2024'
 }
 
 interface FrontMatter {

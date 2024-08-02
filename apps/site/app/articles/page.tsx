@@ -1,7 +1,9 @@
+import { BlogMetaData, getBlogMetaData } from '@org/markdown';
+import { Search } from '../ui/Search/Search';
+
 export default function ArticlesPage() {
-  return (
-    <main>
-      <p>Work in progress...</p>
-    </main>
-  );
+  // imported
+  const blogs: BlogMetaData[] = getBlogMetaData();
+
+  return <Search blogs={blogs} />;
 }

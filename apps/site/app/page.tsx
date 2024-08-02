@@ -2,11 +2,9 @@ import {
   BlogMetaData,
   getBlogMetaData,
   getBlogMetaDataByFileName,
-  formatDate,
 } from '@org/markdown';
 import Link from 'next/link';
-import profile from '../public/profile-image.png';
-import Image from 'next/image';
+import { BlogCard, BlogCardDetails } from './ui/BlogCard/BlogCard';
 
 export default function Index() {
   const mainArticle = getBlogMetaDataByFileName('digital_garden.md');
@@ -19,7 +17,7 @@ export default function Index() {
     <main className="md:grid grid-cols-5 p-2 sm:p-4 min-h-[calc(100vh-74px)] m-auto text-slate-800">
       <div className="col-span-2 p-2">
         <Link href={`/articles/${mainArticle.path}`}>
-          <div className="grid grid-rows-3 h-full hover:outline hover:outline-slate-800 rounded-md p-2">
+          <div className="grid grid-rows-3 h-full sm:hover:outline hover:outline-slate-800 rounded-md p-2">
             <div className="bg-gray-200 animate-pulse relative row-span-2 rounded-md"></div>
 
             <div className="row-span-1">
@@ -42,47 +40,5 @@ export default function Index() {
         </ul>
       </div>
     </main>
-  );
-}
-
-function BlogCard({ blog }: { blog: BlogMetaData }) {
-  return (
-    <Link href={`/articles/${blog.path}`}>
-      <div className="h-full grid grid-cols-4 gap-2 sm:hover:outline hover:outline-slate-800 rounded-md p-2">
-        <div className="bg-gray-200 animate-pulse relative col-span-4 sm:col-span-2 lg:col-span-1 rounded-md min-h-40 sm:min-h-max"></div>
-
-        <div className="col-span-4 sm:col-span-2 lg:col-span-3">
-          <BlogCardDetails blog={blog} />
-        </div>
-      </div>
-    </Link>
-  );
-}
-
-function BlogCardDetails({ blog }: { blog: BlogMetaData }) {
-  return (
-    <div className="flex flex-col justify-around gap-2 h-full p-2">
-      <div className="flex flex-col gap-2">
-        <p className="bg-sky-900 text-white px-2 py-1 w-max text-xs rounded-sm font-mono">
-          {blog.tags[0]}
-        </p>
-        <h3 className="font-bold text-xl">{blog.title}</h3>
-      </div>
-      <BlogCardAuthor author={blog.author} date={blog.date} />
-    </div>
-  );
-}
-
-function BlogCardAuthor({ author, date }: { author: string; date: string }) {
-  return (
-    <div className="flex gap-4 items-center">
-      <div className="relative h-10 w-10">
-        <Image alt="author" src={profile} fill className="rounded-full" />
-      </div>
-      <div className="flex flex-col gap-2">
-        <p>{author}</p>
-        <p className="text-xs">{formatDate(date)}</p>
-      </div>
-    </div>
   );
 }
