@@ -32,7 +32,7 @@ export function Search({ blogs }: { blogs: BlogMetaData[] }) {
 
   return (
     <main className="p-2 sm:p-4">
-      <div className="grid md:grid-cols-2 gap-2 mb-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
         <input
           type="text"
           name="search"
