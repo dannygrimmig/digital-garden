@@ -2,7 +2,7 @@ import { BlogMetaData } from '@org/markdown';
 import Image from 'next/image';
 import Link from 'next/link';
 import profile from '../../../public/profile-image.png';
-import { format } from 'date-fns';
+import { formatDate } from '../../utils/utils';
 
 export function BlogCard({ blog }: { blog: BlogMetaData }) {
   return (
@@ -52,9 +52,4 @@ export function BlogCardAuthor({
       </div>
     </div>
   );
-}
-
-export function formatDate(dateString?: string): string {
-  const date = new Date(dateString || '');
-  return format(date, 'MMMM dd, yyyy'); // Format as 'July 31, 2024'
 }
