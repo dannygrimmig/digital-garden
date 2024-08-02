@@ -1,6 +1,6 @@
 ---
-title: 'Digital Garden - Learning in Public'
-exerpt: 'Welcome to my digital garden! In this article I will explain the what, why, and how behind this site'
+title: 'Digital Garden | Learning in Public'
+exerpt: 'Welcome to my digital garden! In this article I will explain the what, why, and how behind this site.'
 date: '2024-07-24'
 author: 'Danny Grimmig'
 tags: ['web dev', 'next.js', 'nx']

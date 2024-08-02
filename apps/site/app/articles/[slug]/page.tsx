@@ -21,7 +21,17 @@ export default async function Slug({ params }: { params: { slug: string } }) {
     <main className="p-2 sm:p-4 max-w-6xl m-auto">
       <header className="mb-10 font-thin">
         <h1 className="text-5xl mb-2">{frontMatter.title}</h1>
-        <p>{frontMatter.exerpt}</p>
+        <p className="mb-2">{frontMatter.exerpt}</p>
+        <ul className="flex gap-2 flex-wrap">
+          {frontMatter.tags?.map((tag) => (
+            <p
+              key={tag}
+              className="bg-sky-900 text-white px-2 py-1 w-max text-xs rounded-sm font-mono"
+            >
+              {tag}
+            </p>
+          ))}
+        </ul>
       </header>
 
       <section className="sm:grid grid-cols-4 gap-2">
