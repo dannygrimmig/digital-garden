@@ -9,8 +9,8 @@ export function Search({ blogs }: { blogs: BlogMetaData[] }) {
   const [search, setSearch] = React.useState<string>('');
   const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
 
-  // // derived
-  // const possibleTags = getUniqueTags(blogs);
+  // derived
+  const possibleTags = getUniqueTags(blogs);
 
   const filteredArticles = blogs.filter((blog) => {
     const titleMatch = blog.title.toLowerCase().includes(search.toLowerCase());
@@ -21,19 +21,19 @@ export function Search({ blogs }: { blogs: BlogMetaData[] }) {
     return titleMatch && tagsMatch;
   });
 
-  // // helpers
-  // const onSelectTag = (tag: string) => {
-  //   setSelectedTags(
-  //     (prevTags) =>
-  //       prevTags.includes(tag)
-  //         ? prevTags.filter((t) => t !== tag) // Remove the tag if already selected
-  //         : [...prevTags, tag] // Add the tag if not selected
-  //   );
-  // };
+  // helpers
+  const onSelectTag = (tag: string) => {
+    setSelectedTags(
+      (prevTags) =>
+        prevTags.includes(tag)
+          ? prevTags.filter((t) => t !== tag) // Remove the tag if already selected
+          : [...prevTags, tag] // Add the tag if not selected
+    );
+  };
 
   return (
     <main className="p-2 sm:p-4">
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
         <input
           type="text"
           name="search"
@@ -52,7 +52,7 @@ export function Search({ blogs }: { blogs: BlogMetaData[] }) {
             />
           ))}
         </ul>
-      </div> */}
+      </div>
 
       <ul className="md:grid grid-cols-2 gap-2">
         {filteredArticles.map((blog) => (

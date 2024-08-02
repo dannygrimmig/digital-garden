@@ -1,3 +1,5 @@
+'use client';
+
 import { BlogMetaData } from '@org/markdown';
 import Image from 'next/image';
 import Link from 'next/link';
