@@ -84,11 +84,11 @@ function Tag({
       />
       <label
         htmlFor={`tag-${tag}`}
-        className={`text-xs relative font-mono text-white p-2 cursor-pointer rounded-sm flex gap-2 ${
+        className={`text-xs relative font-mono text-white p-2 cursor-pointer rounded-sm ${
           isSelected ? 'bg-sky-600 ' : 'bg-sky-800 hover:bg-sky-700'
         }`}
       >
-        {tag} {isSelected && <p>x</p>}
+        {tag}
       </label>
     </div>
   );
