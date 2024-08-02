@@ -1,11 +1,8 @@
 import { join } from 'path';
 import { readdirSync } from 'fs';
 import styles from './page.module.css';
-import {
-  formatDate,
-  getParsedFileContentBySlug,
-  renderMarkdown,
-} from '@org/markdown';
+import { getParsedFileContentBySlug, renderMarkdown } from '@org/markdown';
+import { format } from 'date-fns';
 
 const POSTS_PATH = join(process.cwd(), '_articles');
 
@@ -74,4 +71,9 @@ export async function generateStaticParams() {
     .map((slug) => ({ slug }));
 
   return paths;
+}
+
+export function formatDate(dateString?: string): string {
+  const date = new Date(dateString || '');
+  return format(date, 'MMMM dd, yyyy'); // Format as 'July 31, 2024'
 }
