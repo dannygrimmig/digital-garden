@@ -4,8 +4,6 @@ import * as React from 'react';
 import { BlogCard } from '../BlogCard/BlogCard';
 
 export function Search({ blogs }: { blogs: BlogMetaData[] }) {
-  // imported
-
   // managed
   const [search, setSearch] = React.useState<string>('');
   const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
@@ -22,6 +20,7 @@ export function Search({ blogs }: { blogs: BlogMetaData[] }) {
     return titleMatch && tagsMatch;
   });
 
+  // helpers
   const onSelectTag = (tag: string) => {
     setSelectedTags(
       (prevTags) =>
@@ -54,7 +53,7 @@ export function Search({ blogs }: { blogs: BlogMetaData[] }) {
         </ul>
       </div>
 
-      <ul className="md:grid grid-cols-2">
+      <ul className="md:grid grid-cols-2 gap-2">
         {filteredArticles.map((blog) => (
           <li key={blog.path}>
             <BlogCard blog={blog} />
@@ -85,11 +84,11 @@ function Tag({
       />
       <label
         htmlFor={`tag-${tag}`}
-        className={`text-xs relative font-mono text-white p-2 cursor-pointer ${
+        className={`text-xs relative font-mono text-white p-2 cursor-pointer rounded-sm flex gap-2 ${
           isSelected ? 'bg-sky-600 ' : 'bg-sky-800 hover:bg-sky-700'
         }`}
       >
-        {tag}
+        {tag} {isSelected && <p>x</p>}
       </label>
     </div>
   );

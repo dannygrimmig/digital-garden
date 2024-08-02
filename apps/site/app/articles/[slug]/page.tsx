@@ -3,6 +3,7 @@ import { readdirSync } from 'fs';
 import styles from './page.module.css';
 import { getParsedFileContentBySlug, renderMarkdown } from '@org/markdown';
 import { format } from 'date-fns';
+import { BlogCardAuthor } from '../../ui/BlogCard/BlogCard';
 
 const POSTS_PATH = join(process.cwd(), '_articles');
 
@@ -19,23 +20,17 @@ export default async function Slug({ params }: { params: { slug: string } }) {
   return (
     <main className="p-2 sm:p-4 max-w-6xl m-auto">
       <header className="mb-10 font-thin">
-        <h1 className="text-5xl">{frontMatter.title}</h1>
+        <h1 className="text-5xl mb-2">{frontMatter.title}</h1>
         <p>{frontMatter.exerpt}</p>
       </header>
 
       <section className="sm:grid grid-cols-4 gap-2">
         <div className="col-span-1 font-thin">
-          <div className="p-4 border border-black rounded-md mb-4 ">
-            <h2>Meta Data</h2>
-            <MetaDataDetail label="author" detail={frontMatter.author} />
-            <MetaDataDetail
-              label="date"
-              detail={formatDate(frontMatter.date)}
+          <div className="sticky top-[64px] p-4">
+            <BlogCardAuthor
+              author={frontMatter.author || ''}
+              date={formatDate(frontMatter.date)}
             />
-          </div>
-          <div className="p-4">
-            <h2>Share</h2>
-            🚧 work in progress...
           </div>
         </div>
 
