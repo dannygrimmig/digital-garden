@@ -32,7 +32,7 @@ export function Search({ blogs }: { blogs: BlogMetaData[] }) {
 
   return (
     <main className="p-2 sm:p-4">
-      <div className="flex gap-2 flex-wrap mb-2 items-center">
+      <div className="grid md:grid-cols-2 gap-2 mb-2">
         <input
           type="text"
           name="search"
@@ -41,7 +41,7 @@ export function Search({ blogs }: { blogs: BlogMetaData[] }) {
           className="border border-black flex-1 p-1"
           onChange={(e) => setSearch(e.target.value)}
         />
-        <ul className="flex gap-2 flex-1">
+        <ul className="flex gap-2 items-center flex-wrap">
           {possibleTags.map((tag) => (
             <Tag
               key={tag}
