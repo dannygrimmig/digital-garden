@@ -4,6 +4,9 @@ exerpt: 'Welcome to my digital garden! In this article I will explain the what, 
 date: '2024-07-24'
 author: 'Danny Grimmig'
 tags: ['web dev', 'next.js', 'nx']
+image: 
+    src: "https://shannonshipman.com/wp-content/uploads/2019/05/4B0A9552-1.jpg"
+    citation: 'Shannon Shipman'
 ---
 After asking around for advice on how to grow in the software engineering space, a common piece of advice has been continuous learning; better yet, continuous learning in public. Here I will detail the what and why behind creating this site, and finally the how. 
 

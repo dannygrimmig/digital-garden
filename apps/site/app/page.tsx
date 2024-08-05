@@ -5,6 +5,7 @@ import {
 } from '@org/markdown';
 import Link from 'next/link';
 import { BlogCard, BlogCardDetails } from './ui/BlogCard/BlogCard';
+import Image from 'next/image';
 
 export default function Index() {
   const mainArticle = getBlogMetaDataByFileName('digital-garden.md');
@@ -18,7 +19,15 @@ export default function Index() {
       <div className="col-span-2 p-2">
         <Link href={`/articles/${mainArticle.path}`}>
           <div className="grid grid-rows-3 h-full sm:hover:outline hover:outline-slate-800 rounded-md p-2">
-            <div className="bg-gray-200 animate-pulse relative row-span-2 rounded-md"></div>
+            <div className="bg-gray-200 relative row-span-2 rounded-md">
+              <Image
+                alt={mainArticle.image.citation}
+                src={mainArticle.image.src}
+                fill
+                className="rounded-md"
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
 
             <div className="row-span-1">
               <BlogCardDetails blog={mainArticle} />
@@ -34,7 +43,7 @@ export default function Index() {
               <BlogCard blog={blog} />
             </li>
           ))}
-          <li className="underline italic font-semibold text-xs">
+          <li className=" text-xs">
             <Link href="/articles">see all articles &gt;</Link>
           </li>
         </ul>
