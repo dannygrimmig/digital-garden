@@ -30,10 +30,10 @@ export function BlogCardDetails({ blog }: { blog: BlogMetaData }) {
   return (
     <div className="flex flex-col justify-around gap-2 h-full p-2">
       <div className="flex flex-col gap-2">
-        <p className="bg-sky-900 text-white px-2 py-1 w-max text-xs rounded-sm font-mono">
+        <p className="bg-sky-900 text-white px-2 py-1 w-max text-xs rounded-sm font-thin">
           {blog.tags[0]}
         </p>
-        <h3 className="font-light text-xl">{blog.title}</h3>
+        <h3 className="text-xl">{blog.title}</h3>
       </div>
 
       <BlogCardAuthor author={blog.author} date={blog.date} />
@@ -49,7 +49,7 @@ export function BlogCardAuthor({
   date: string;
 }) {
   return (
-    <div className="flex gap-4 items-center font-extralight">
+    <div className="flex gap-4 items-center font-thin">
       <div className="relative h-10 w-10">
         <Image alt="author" src={profile} fill className="rounded-full" />
       </div>

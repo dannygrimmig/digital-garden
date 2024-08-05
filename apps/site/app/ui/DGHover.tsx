@@ -10,7 +10,6 @@ export const NameReveal = () => {
       <div
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
-        className="font-thin"
       >
         <WordReveal letter="D" word="anny" isHover={isHover} />
         <WordReveal letter="G" word="rimmig" isHover={isHover} />

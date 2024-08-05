@@ -39,7 +39,7 @@ export default function Index() {
       <div className="col-span-3 p-2">
         <ul className="h-full flex flex-col gap-2">
           <li className="border-b border-b-1 w-1/2">
-            <p className="font-thin">Most Recent</p>
+            <p>Most Recent</p>
           </li>
           {first3.map((blog) => (
             <li key={blog.path} className="flex-1">
