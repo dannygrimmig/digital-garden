@@ -5,6 +5,7 @@ import { getParsedFileContentBySlug, renderMarkdown } from '@org/markdown';
 import { format } from 'date-fns';
 import { BlogCardAuthor } from '../../ui/BlogCard/BlogCard';
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 const POSTS_PATH = join(process.cwd(), '_articles');
 
@@ -46,6 +47,19 @@ export default async function Slug({ params }: { params: { slug: string } }) {
         </div>
 
         <div className="col-span-3 p-4">
+          <div className="bg-gray-200 relative h-[500px]">
+            <Image
+              alt={frontMatter.image?.citation || ''}
+              src={frontMatter.image?.src || ''}
+              fill
+              className="rounded-md"
+              style={{ objectFit: 'cover' }}
+            />
+          </div>
+          <p className="text-gray-400 font-thin italic mb-4">
+            {frontMatter.image?.citation}
+          </p>
+
           <div
             className={styles.articleContent}
             dangerouslySetInnerHTML={{ __html: htmlContent }}

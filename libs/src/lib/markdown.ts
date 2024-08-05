@@ -51,6 +51,7 @@ export function getBlogMetaDataByFileName(fileName: string): BlogMetaData {
     author: data['author'] || 'Unknown',
     date: data['date'] || 'No date',
     tags: data['tags'] || [],
+    image: data['image'] || { src: '', citation: '' },
   };
 }
 
@@ -60,6 +61,7 @@ interface FrontMatter {
   date?: string;
   author?: string;
   tags?: string[];
+  image?: { src?: string; citation?: string };
 }
 
 export interface BlogMetaData {
@@ -68,4 +70,5 @@ export interface BlogMetaData {
   author: string;
   date: string;
   tags: string[];
+  image: { src: string; citation: string };
 }
