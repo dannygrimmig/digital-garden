@@ -2,7 +2,11 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
 
-export const NameReveal = () => {
+export const NameReveal = ({
+  isRevealed = false,
+}: {
+  isRevealed?: boolean;
+}) => {
   const [isHover, setIsHover] = useState(false);
 
   return (
@@ -11,8 +15,8 @@ export const NameReveal = () => {
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
       >
-        <WordReveal letter="D" word="anny" isHover={isHover} />
-        <WordReveal letter="G" word="rimmig" isHover={isHover} />
+        <WordReveal letter="D" word="anny" isHover={isHover || isRevealed} />
+        <WordReveal letter="G" word="rimmig" isHover={isHover || isRevealed} />
       </div>
     </Link>
   );

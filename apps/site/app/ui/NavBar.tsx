@@ -12,7 +12,7 @@ export function NavBar() {
   return (
     <nav className="bg-white flex border-b px-4 py-2 sticky top-0 z-10">
       <div className="flex gap-4 items-center">
-        <NameReveal />
+        <NameReveal isRevealed={pathname === '/'} />
 
         {links.map((link) => (
           <Link key={link} href={`/${link}`}>
