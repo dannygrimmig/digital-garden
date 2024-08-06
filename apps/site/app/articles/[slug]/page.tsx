@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 import { BlogCardAuthor } from '../../ui/BlogCard/BlogCard';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const POSTS_PATH = join(process.cwd(), '_articles');
 
@@ -38,12 +39,14 @@ export default async function Slug({ params }: { params: { slug: string } }) {
 
       <section className="sm:grid grid-cols-4 gap-2">
         <div className="col-span-1">
-          <div className="sticky top-[64px] p-4">
-            <BlogCardAuthor
-              author={frontMatter.author || ''}
-              date={formatDate(frontMatter.date)}
-            />
-          </div>
+          <Link href={'/author/dannygrimmig'}>
+            <div className="sticky top-[72px] p-4 sm:hover:outline hover:outline-slate-800 rounded-md">
+              <BlogCardAuthor
+                author={frontMatter.author || ''}
+                date={formatDate(frontMatter.date)}
+              />
+            </div>
+          </Link>
         </div>
 
         <div className="col-span-3 p-4">
