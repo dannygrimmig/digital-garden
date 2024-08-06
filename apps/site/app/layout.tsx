@@ -1,7 +1,6 @@
-import Link from 'next/link';
 import './global.css';
-import { NameReveal } from './ui/DGHover';
 import { Poppins } from 'next/font/google';
+import { NavBar } from './ui/NavBar';
 
 export const metadata = {
   title: 'Danny Grimmig | Blog',
@@ -22,17 +21,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className}`}>
-        <nav className="bg-white flex border-b px-4 py-2 sticky top-0 z-10">
-          <div className="flex gap-4 items-center">
-            <NameReveal />
-            <Link href="/">
-              <p>Home</p>
-            </Link>
-            <Link href="/articles">
-              <p>Articles</p>
-            </Link>
-          </div>
-        </nav>
+        <NavBar />
+
         {children}
       </body>
     </html>
