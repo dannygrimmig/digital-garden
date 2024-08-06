@@ -7,6 +7,7 @@ import { BlogCardAuthor } from '../../ui/BlogCard/BlogCard';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import Breadcrumb from '../../ui/Breadcrumb';
 
 const POSTS_PATH = join(process.cwd(), '_articles');
 
@@ -22,9 +23,13 @@ export default async function Slug({ params }: { params: { slug: string } }) {
 
   return (
     <main className="p-2 sm:p-4 max-w-6xl m-auto">
-      <header className="mb-10">
-        <h1 className="text-5xl mb-2">{frontMatter.title}</h1>
-        <p className="mb-2">{frontMatter.exerpt}</p>
+      <header className="mb-10 flex flex-col gap-2">
+        <Breadcrumb slug={slug} />
+
+        <h1 className="text-5xl">{frontMatter.title}</h1>
+
+        <p>{frontMatter.exerpt}</p>
+
         <ul className="flex gap-2 flex-wrap">
           {frontMatter.tags?.map((tag) => (
             <p
