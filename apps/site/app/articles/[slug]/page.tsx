@@ -37,7 +37,7 @@ export default async function Slug({ params }: { params: { slug: string } }) {
       </header>
 
       <section className="sm:grid grid-cols-4 gap-2">
-        <div className="col-span-1 font-thin">
+        <div className="col-span-1">
           <div className="sticky top-[64px] p-4">
             <BlogCardAuthor
               author={frontMatter.author || ''}
