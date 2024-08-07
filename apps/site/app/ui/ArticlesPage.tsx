@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { BlogGrid } from '../ui/BlogGrid/BlogGrid';
 
-export function ArticlesPageChild() {
+export function ArticlesPage() {
   // imported
   const searchParams = useSearchParams();
   const search = searchParams.get('search') || '';
@@ -27,7 +27,11 @@ export function ArticlesPageChild() {
   }, [search]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div>
+        <p>Loading...</p>
+      </div>
+    );
   }
 
   return <BlogGrid blogs={blogs} />;

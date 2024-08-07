@@ -1,10 +1,18 @@
 import { Suspense } from 'react';
-import { ArticlesPageChild } from '../ui/ArticlesPage';
+import { ArticlesPage } from '../ui/ArticlesPage';
 
-export default function ArticlesPage() {
+export default function ArticlesPageContainer() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <ArticlesPageChild />
-    </Suspense>
+    <main className="p-2 sm:p-4">
+      <Suspense
+        fallback={
+          <div>
+            <p>Loading...</p>
+          </div>
+        }
+      >
+        <ArticlesPage />
+      </Suspense>
+    </main>
   );
 }
