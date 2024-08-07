@@ -1,9 +1,10 @@
-import { BlogMetaData, getBlogMetaData } from '@org/markdown';
-import { Search } from '../ui/Search/Search';
+import { Suspense } from 'react';
+import { ArticlesPageChild } from '../ui/ArticlesPage';
 
 export default function ArticlesPage() {
-  // imported
-  const blogs: BlogMetaData[] = getBlogMetaData();
-
-  return <Search blogs={blogs} />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ArticlesPageChild />
+    </Suspense>
+  );
 }
