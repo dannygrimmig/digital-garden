@@ -13,15 +13,32 @@ export function ArticlesPage() {
   // managed
   const [blogs, setBlogs] = useState<BlogMetaData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchBlogs() {
-      const response = await fetch(
-        `/api/articles?search=${encodeURIComponent(search)}`
-      );
-      const data = await response.json();
-      setBlogs(data);
-      setLoading(false);
+      try {
+        // Fetch blogs from the API
+        const response = await fetch(
+          `/api/articles?search=${encodeURIComponent(search)}`
+        );
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        // Parse the response JSON
+        const data = await response.json();
+
+        // Update state with the fetched blogs
+        setBlogs(data);
+        setError(null); // Clear any previous errors
+      } catch (error) {
+        console.error('Failed to fetch blogs:', error);
+        setError('Failed to load blogs. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
     }
 
     fetchBlogs();
@@ -31,6 +48,14 @@ export function ArticlesPage() {
     return (
       <div>
         <p>Blog Grid Loading</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div>
+        <p>{error}</p>
       </div>
     );
   }
