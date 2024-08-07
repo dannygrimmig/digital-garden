@@ -63,6 +63,11 @@ const SearchInNav = () => {
     setSearchTerm('');
   };
 
+  const handleClose = () => {
+    setSearchTerm('');
+    setIsOpen(false);
+  };
+
   React.useEffect(() => {
     if (isOpen && inputRef.current) {
       inputRef.current.focus();
@@ -77,6 +82,13 @@ const SearchInNav = () => {
 
       {isOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-white bg-opacity-95 z-50 flex justify-center items-center">
+          <button
+            onClick={handleClose}
+            className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center bg-slate-900 rounded-full hover:bg-slate-800 text-white"
+          >
+            <span className="text-lg font-bold">X</span>
+          </button>
+
           <form
             onSubmit={(e) => handleSearch(e)}
             className="flex gap-2 sm:min-w-96 border-b-2 border-sky-900 p-4"
