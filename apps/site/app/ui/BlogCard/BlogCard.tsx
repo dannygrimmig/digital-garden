@@ -8,9 +8,9 @@ export function BlogCard({ blog }: { blog: BlogMetaData }) {
   return (
     <Link
       href={`/articles/${blog.path}`}
-      className="h-full grid grid-cols-4 gap-2 sm:hover:outline hover:outline-slate-800 rounded-md p-2"
+      className="h-full min-h-40 grid grid-cols-4 grid-rows-2 sm:grid-rows-1 gap-2 sm:hover:outline hover:outline-slate-800 rounded-md p-2"
     >
-      <figure className="bg-gray-200 relative col-span-4 sm:col-span-2 lg:col-span-1 rounded-md min-h-40 sm:min-h-max">
+      <figure className="bg-gray-200 relative col-span-4 sm:col-span-2 lg:col-span-1 rounded-md row-span-1 sm:min-h-max">
         <Image
           alt={blog.image.citation}
           src={blog.image.src}
