@@ -8,6 +8,7 @@ export function ArticlesPage() {
   // imported
   const searchParams = useSearchParams();
   const search = searchParams.get('search') || '';
+  console.log(search);
 
   // managed
   const [blogs, setBlogs] = useState([]);

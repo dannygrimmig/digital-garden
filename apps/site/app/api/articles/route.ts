@@ -12,6 +12,11 @@ export async function GET(request: Request) {
   // Retrieve the list of blog metadata using the provided utility function
   const blogs = getBlogMetaData();
 
+  // If search is empty, return all blogs without filtering
+  if (!search) {
+    return NextResponse.json(blogs);
+  }
+
   // Filter the blogs based on the search term
   const filteredBlogs = blogs.filter((blog) => {
     // Convert the search term to lowercase for case-insensitive comparison
