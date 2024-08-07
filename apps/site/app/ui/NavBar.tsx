@@ -86,7 +86,7 @@ const SearchInNav = () => {
             onClick={handleClose}
             className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center bg-slate-900 rounded-full hover:bg-slate-800 text-white"
           >
-            <span className="text-lg font-bold">X</span>
+            <span className="text-lg font-thin">X</span>
           </button>
 
           <form
