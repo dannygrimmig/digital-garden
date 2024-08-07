@@ -77,19 +77,22 @@ const SearchInNav = () => {
 
       {isOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-white bg-opacity-95 z-50 flex justify-center items-center">
-          <form onSubmit={(e) => handleSearch(e)} className="flex gap-2">
+          <form
+            onSubmit={(e) => handleSearch(e)}
+            className="flex gap-2 sm:min-w-96 border-b-2 border-sky-900 p-4"
+          >
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="search articles"
-              className="p-4 border border-blue-500 rounded"
+              className="p-4 border-none outline-none flex-1 sm:text-3xl bg-inherit"
               ref={inputRef}
             />
 
             <button
               type="submit"
-              className="p-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              className="p-2 bg-sky-900 text-white rounded hover:bg-sky-600"
             >
               Search
             </button>
