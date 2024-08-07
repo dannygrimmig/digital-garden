@@ -68,17 +68,11 @@ export function ArticlesPage() {
         <form onSubmit={(e) => handleSearch(e)} className="flex gap-2 max-w-96">
           <input
             type="text"
-            placeholder={'search'}
+            placeholder={'🔍'}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="border border-gray-300 py-1 px-2 rounded-md w-full"
           />
-          <button
-            type="submit"
-            className="p-2 bg-sky-900 text-white rounded-full hover:bg-sky-600"
-          >
-            search
-          </button>
         </form>
       </div>
 
