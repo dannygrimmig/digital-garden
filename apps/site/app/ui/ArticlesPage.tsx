@@ -3,16 +3,16 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { BlogGrid } from '../ui/BlogGrid/BlogGrid';
+import { BlogMetaData } from '@org/markdown';
 
 export function ArticlesPage() {
   // imported
   const searchParams = useSearchParams();
   const search = searchParams.get('search') || '';
-  console.log(search);
 
   // managed
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [blogs, setBlogs] = useState<BlogMetaData[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchBlogs() {
@@ -30,7 +30,7 @@ export function ArticlesPage() {
   if (loading) {
     return (
       <div>
-        <p>Loading...</p>
+        <p>Blog Grid Loading</p>
       </div>
     );
   }

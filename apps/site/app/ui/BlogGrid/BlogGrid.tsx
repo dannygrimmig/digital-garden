@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import { BlogMetaData } from '@org/markdown';
 import { BlogCard } from '../BlogCard/BlogCard';
 
