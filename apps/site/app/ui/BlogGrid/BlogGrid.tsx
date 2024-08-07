@@ -1,4 +1,5 @@
 import { BlogMetaData } from '@org/markdown';
+import { BlogCard } from '../BlogCard/BlogCard';
 
 export function BlogGrid({ blogs }: { blogs: BlogMetaData[] }) {
   return (
@@ -7,8 +8,8 @@ export function BlogGrid({ blogs }: { blogs: BlogMetaData[] }) {
         <li>No blogs found</li>
       ) : (
         blogs.map((blog) => (
-          <li key={blog.path}>
-            <p>{blog.title}</p>
+          <li key={blog.path} className="col-span-1">
+            <BlogCard blog={blog} />
           </li>
         ))
       )}
