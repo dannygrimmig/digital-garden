@@ -52,6 +52,7 @@ const DGReveal = ({ isRevealed = false }: { isRevealed?: boolean }) => {
 const SearchInNav = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [searchTerm, setSearchTerm] = React.useState('');
+  const [isHover, setIsHover] = React.useState(false);
   const router = useRouter();
   const inputRef = React.useRef<HTMLInputElement>(null);
 
@@ -76,12 +77,17 @@ const SearchInNav = () => {
 
   return (
     <>
-      <button type="button" onClick={() => setIsOpen(true)}>
-        <p>search</p>
+      <button
+        type="button"
+        onClick={() => setIsOpen(true)}
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+      >
+        <TextReveal isHover={isHover} letter="🔍" word="search" />
       </button>
 
       {isOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-white bg-opacity-95 z-50 flex justify-center items-center">
+        <div className="absolute top-0 left-0 w-screen h-screen bg-white bg-opacity-95 z-50 flex justify-center items-center">
           <button
             onClick={handleClose}
             className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center bg-slate-900 rounded-full hover:bg-slate-800 text-white"
@@ -104,9 +110,9 @@ const SearchInNav = () => {
 
             <button
               type="submit"
-              className="p-2 bg-sky-900 text-white rounded hover:bg-sky-600"
+              className="p-2 bg-sky-900 text-white rounded-full hover:bg-sky-600"
             >
-              Search
+              search
             </button>
           </form>
         </div>

@@ -44,14 +44,6 @@ export function ArticlesPage() {
     fetchBlogs();
   }, [search]);
 
-  if (loading) {
-    return (
-      <div>
-        <p>Blog Grid Loading</p>
-      </div>
-    );
-  }
-
   if (error) {
     return (
       <div>
@@ -62,7 +54,7 @@ export function ArticlesPage() {
 
   return (
     <div>
-      <BlogGrid blogs={blogs} />
+      <BlogGrid blogs={blogs} isLoading={loading} />
     </div>
   );
 }
