@@ -6,22 +6,23 @@ import { formatDate } from '../../utils/utils';
 
 export function BlogCard({ blog }: { blog: BlogMetaData }) {
   return (
-    <Link href={`/articles/${blog.path}`}>
-      <div className="h-full grid grid-cols-4 gap-2 sm:hover:outline hover:outline-slate-800 rounded-md p-2 min-h-40">
-        <div className="bg-gray-200 relative col-span-4 sm:col-span-2 lg:col-span-1 rounded-md min-h-40 sm:min-h-max">
-          <Image
-            alt={blog.image.citation}
-            src={blog.image.src}
-            fill
-            className="rounded-md"
-            style={{ objectFit: 'cover' }}
-          />
-        </div>
+    <Link
+      href={`/articles/${blog.path}`}
+      className="h-full grid grid-cols-4 gap-2 sm:hover:outline hover:outline-slate-800 rounded-md p-2"
+    >
+      <figure className="bg-gray-200 relative col-span-4 sm:col-span-2 lg:col-span-1 rounded-md min-h-40 sm:min-h-max">
+        <Image
+          alt={blog.image.citation}
+          src={blog.image.src}
+          fill
+          className="rounded-md"
+          style={{ objectFit: 'cover' }}
+        />
+      </figure>
 
-        <div className="col-span-4 sm:col-span-2 lg:col-span-3">
-          <BlogCardDetails blog={blog} />
-        </div>
-      </div>
+      <article className="col-span-4 sm:col-span-2 lg:col-span-3">
+        <BlogCardDetails blog={blog} />
+      </article>
     </Link>
   );
 }
