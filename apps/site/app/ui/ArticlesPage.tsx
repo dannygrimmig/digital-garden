@@ -1,19 +1,22 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { BlogGrid } from '../ui/BlogGrid/BlogGrid';
 import { BlogMetaData } from '@org/markdown';
+import Breadcrumb from './Breadcrumb';
 
 export function ArticlesPage() {
   // imported
   const searchParams = useSearchParams();
   const search = searchParams.get('search') || '';
+  const router = useRouter();
 
   // managed
   const [blogs, setBlogs] = useState<BlogMetaData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState(search);
 
   useEffect(() => {
     async function fetchBlogs() {
@@ -51,9 +54,34 @@ export function ArticlesPage() {
       </div>
     );
   }
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    router.push(`/articles?search=${encodeURIComponent(searchTerm)}`);
+    setSearchTerm('');
+  };
 
   return (
     <div>
+      <div className="flex flex-col gap-2 mb-4">
+        <Breadcrumb slug={search} />
+        <form onSubmit={(e) => handleSearch(e)} className="flex gap-2 max-w-96">
+          <input
+            type="text"
+            placeholder={'search'}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="border border-gray-300 py-1 px-2 rounded-md w-full"
+          />
+          <button
+            type="submit"
+            className="p-2 bg-sky-900 text-white rounded-full hover:bg-sky-600"
+          >
+            search
+          </button>
+        </form>
+      </div>
+
       <BlogGrid blogs={blogs} isLoading={loading} />
     </div>
   );
