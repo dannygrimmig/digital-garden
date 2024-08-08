@@ -50,7 +50,7 @@ const SearchArticles: React.FC<SearchProps> = ({
         </button>
 
         {isOpen && (
-          <div className="absolute top-0 left-0 w-screen h-screen bg-white bg-opacity-95 z-50 flex justify-center items-center p-4">
+          <div className="fixed top-0 left-0 w-full h-full bg-white bg-opacity-95 z-50 flex justify-center items-center p-4">
             <button
               onClick={handleClose}
               className="absolute top-4 right-4 w-12 h-12 flex items-center justify-center bg-slate-900 rounded-full hover:bg-slate-800 text-white"
