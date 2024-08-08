@@ -70,13 +70,6 @@ const SearchArticles: React.FC<SearchProps> = ({
                 className="p-4 border-none outline-none flex-1 sm:text-3xl bg-inherit"
                 ref={inputRef}
               />
-
-              <button
-                type="submit"
-                className="p-2 bg-sky-900 text-xs text-white rounded-full hover:bg-sky-600"
-              >
-                search
-              </button>
             </form>
           </div>
         )}
