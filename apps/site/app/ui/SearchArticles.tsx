@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import * as React from 'react';
 import { useRouter } from 'next/navigation';
 import { TextReveal } from './TextReveal';
 
