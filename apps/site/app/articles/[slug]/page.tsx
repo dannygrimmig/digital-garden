@@ -3,11 +3,12 @@ import { readdirSync } from 'fs';
 import styles from './page.module.css';
 import { getParsedFileContentBySlug, renderMarkdown } from '@org/markdown';
 import { format } from 'date-fns';
-import { BlogCardAuthor } from '../../ui/BlogCard/BlogCard';
+import { BlogCardAuthor } from '../../ui/ArticleCards/ArticleCard/ArticleCard';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '../../ui/Breadcrumb';
+import { TagList } from '../../ui/Tags/TagList';
 
 const POSTS_PATH = join(process.cwd(), '_articles');
 
@@ -30,16 +31,7 @@ export default async function Slug({ params }: { params: { slug: string } }) {
 
         <p>{frontMatter.exerpt}</p>
 
-        <ul className="flex gap-2 flex-wrap">
-          {frontMatter.tags?.map((tag) => (
-            <p
-              key={tag}
-              className="bg-sky-900 text-white px-2 py-1 w-max text-xs rounded-sm"
-            >
-              {tag}
-            </p>
-          ))}
-        </ul>
+        <TagList tags={frontMatter.tags || []} />
       </header>
 
       <section className="sm:grid grid-cols-4 gap-2">

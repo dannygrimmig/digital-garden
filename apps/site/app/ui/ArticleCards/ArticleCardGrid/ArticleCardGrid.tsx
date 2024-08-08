@@ -1,7 +1,7 @@
 import { BlogMetaData } from '@org/markdown';
-import { BlogCard } from '../BlogCard/BlogCard';
+import { ArticleCard } from '../ArticleCard/ArticleCard';
 
-export function BlogGrid({
+export function ArticleCardGrid({
   blogs,
   isLoading,
 }: {
@@ -11,9 +11,9 @@ export function BlogGrid({
   if (isLoading) {
     return (
       <ul className="flex flex-col gap-2">
-        {Array.from({ length: 5 }).map((_, index) => (
+        {Array.from({ length: 3 }).map((_, index) => (
           <li key={index} className="flex-1">
-            <BlogCard blog={{} as BlogMetaData} isLoading={true} />
+            <ArticleCard blog={{} as BlogMetaData} isLoading={true} />
           </li>
         ))}
       </ul>
@@ -27,7 +27,7 @@ export function BlogGrid({
       ) : (
         blogs.map((blog) => (
           <li key={blog.path} className="flex-1">
-            <BlogCard blog={blog} isLoading={false} />
+            <ArticleCard blog={blog} isLoading={false} />
           </li>
         ))
       )}

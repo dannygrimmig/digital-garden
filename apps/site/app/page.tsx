@@ -4,7 +4,10 @@ import {
   getBlogMetaDataByFileName,
 } from '@org/markdown';
 import Link from 'next/link';
-import { BlogCard, BlogCardDetails } from './ui/BlogCard/BlogCard';
+import {
+  ArticleCard,
+  BlogCardDetails,
+} from './ui/ArticleCards/ArticleCard/ArticleCard';
 import Image from 'next/image';
 
 export default function Index() {
@@ -44,7 +47,7 @@ export default function Index() {
 
           {first3.map((blog) => (
             <li key={blog.path} className="flex-1">
-              <BlogCard blog={blog} />
+              <ArticleCard blog={blog} />
             </li>
           ))}
         </ul>
