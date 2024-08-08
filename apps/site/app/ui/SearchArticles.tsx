@@ -60,7 +60,7 @@ const SearchArticles: React.FC<SearchProps> = ({
 
             <form
               onSubmit={(e) => handleSearch(e)}
-              className="flex gap-2 sm:min-w-96 border-b-2 border-sky-900 p-4"
+              className="flex p-2 gap-2 w-full sm:w-auto sm:min-w-96 border-b-2 border-sky-900"
             >
               <input
                 type="text"
@@ -73,7 +73,7 @@ const SearchArticles: React.FC<SearchProps> = ({
 
               <button
                 type="submit"
-                className="p-2 bg-sky-900 text-white rounded-full hover:bg-sky-600"
+                className="p-2 bg-sky-900 text-xs text-white rounded-full hover:bg-sky-600"
               >
                 search
               </button>
