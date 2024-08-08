@@ -1,6 +1,7 @@
 import './global.css';
 import { Poppins } from 'next/font/google';
 import { NavBar } from './ui/NavBar';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: 'Danny Grimmig | Blog',
@@ -24,6 +25,7 @@ export default function RootLayout({
         <NavBar />
 
         {children}
+        <Analytics />
       </body>
     </html>
   );
