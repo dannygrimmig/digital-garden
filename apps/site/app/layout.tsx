@@ -6,6 +6,10 @@ import { Analytics } from '@vercel/analytics/react';
 export const metadata = {
   title: 'Danny Grimmig | Blog',
   description: 'Digital Garden created using nx and Next.js',
+  metadataBase: new URL('https://blog.dannygrimmig.com'),
+  openGraph: {
+    images: '/opengraph-image.png',
+  },
 };
 
 const poppins = Poppins({
