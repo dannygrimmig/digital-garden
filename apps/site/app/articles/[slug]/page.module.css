@@ -32,6 +32,14 @@
 .articleContent ul,
 .articleContent ol {
   margin-bottom: 1.5rem;
+  margin-left: 1rem;
+}
+
+.articleContent ul {
+  list-style: disc;
+}
+.articleContent ol {
+  list-style: decimal;
 }
 
 .articleContent li {
@@ -59,8 +67,6 @@
 }
 /* Styles for inline code */
 .articleContent code {
-  border-radius: 4px;
-  padding: 0.2rem 0.4rem;
   font-family: 'Fira Code', monospace;
   color: #618ac2;
   font-size: 0.9rem;
@@ -77,6 +83,7 @@
   line-height: 1.5;
   border: 1px solid #333;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
 }
 
 /* Optional: Highlighting specific lines in code blocks */
