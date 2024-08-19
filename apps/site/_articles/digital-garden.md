@@ -3,7 +3,7 @@ title: 'Digital Garden | Learning in Public'
 exerpt: 'Welcome to my digital garden! In this article I will explain the what, why, and how behind this site.'
 date: '2024-07-24'
 author: 'Danny Grimmig'
-tags: ['web dev', 'next.js', 'nx']
+tags: ['web dev']
 image: 
     src: "https://shannonshipman.com/wp-content/uploads/2019/05/4B0A9552-1.jpg"
     citation: 'Shannon Shipman'
@@ -28,11 +28,4 @@ To me, this digital garden is going to be a space where I can learn in public (s
 ## How I made this site
 This digital garden is a Next.js site, created within a monorepo using NX. The bones of the site are created through a helpful tutorial on [egghead.io](https://egghead.io/), an incredible resource for learning web development. [Architect an Extensible Digital Garden with Next.js, Tailwind, and Nx](https://egghead.io/courses/architect-an-extensible-digital-garden-with-next-js-tailwind-and-nx-53f7628f) walks through managing monorepos with NX, utilizing server side rendering with next js, and styling with tailwind, and this article will summarize my learnings.
 
-### NX: Creating the Monorepo
-*talk about the monorepo*
-
-### Next.js: React Framework with Server Side Rendering
-*setup, ssr, render markdown*
-
-### Vercel: Deploy with Vercel
-*quick deployment section*
+*In a later article, I can detail the specifics of this site (as much of the NX and Next.js has changed since the courses creation)*

@@ -45,8 +45,9 @@ const SearchArticles: React.FC<SearchProps> = ({
           onClick={() => setIsOpen(true)}
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
+          className="p-2 rounded-md sm:hover:bg-slate-200 transition-all duration-300"
         >
-          <TextReveal isHover={isHover} letter="🔍" word="search" />
+          🔍
         </button>
 
         {isOpen && (
