@@ -1,6 +1,6 @@
 ---
 title: 'Understanding the Event Loop'
-exerpt: 'Taking what I have learned from creating accessible web pages and components and putting into helpful guide.'
+exerpt: 'How the event loop solves problems of a single-threaded language'
 date: '2024-08-18'
 author: 'Danny Grimmig'
 tags: ['javascript', 'web dev']

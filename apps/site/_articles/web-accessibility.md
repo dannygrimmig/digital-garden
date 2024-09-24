@@ -1,6 +1,6 @@
 ---
 title: 'Web Accessibility Basics and Helpful Tools'
-exerpt: 'Taking what I have learned from creating accessible web pages and components and putting into helpful guide.'
+exerpt: 'Taking what I have learned from creating accessible web pages / components and putting into helpful guide.'
 date: '2024-08-2'
 author: 'Danny Grimmig'
 tags: ['accessibility', 'web dev']

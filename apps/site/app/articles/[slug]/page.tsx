@@ -23,15 +23,15 @@ export default async function Slug({ params }: { params: { slug: string } }) {
   const htmlContent = await renderMarkdown(content);
 
   return (
-    <main className="p-2 sm:p-4 max-w-6xl m-auto">
+    <main className="py-8 px-2 sm:px-4 max-w-6xl m-auto">
       <header className="mb-10 flex flex-col gap-2">
         <Breadcrumb slug={slug} />
 
-        <h1 className="text-5xl">{frontMatter.title}</h1>
+        <h1 className="text-3xl sm:text-5xl font-thin">{frontMatter.title}</h1>
 
-        <p>{frontMatter.exerpt}</p>
+        <p className="font-light">{frontMatter.exerpt}</p>
 
-        <TagList tags={frontMatter.tags || []} />
+        <TagList tags={frontMatter.tags || []} searchTag={true} />
       </header>
 
       <section className="sm:grid grid-cols-4 gap-2">
