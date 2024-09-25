@@ -43,7 +43,7 @@ export function BlogCardDetails({ blog }: { blog: BlogMetaData }) {
     <div className="flex flex-col justify-around gap-2 h-full p-2">
       <div className="flex flex-col gap-2">
         <Tag tag={blog.tags[0] || ''} />
-        <h3 className="text-xl">{blog.title}</h3>
+        <h3 className="text-2xl font-thin">{blog.title}</h3>
       </div>
 
       <BlogCardAuthor author={blog.author} date={blog.date} />
@@ -64,9 +64,9 @@ export function BlogCardAuthor({
         <Image alt="author" src={profile} fill className="rounded-full" />
       </div>
 
-      <div className="flex flex-col gap-2 font-thin">
-        <p>{author}</p>
-        <p className="text-xs">{formatDate(date)}</p>
+      <div className="flex flex-col gap-2">
+        <p className="font-thin">{author}</p>
+        <p className="text-xs font-bold">{formatDate(date)}</p>
       </div>
     </div>
   );
