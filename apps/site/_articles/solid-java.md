@@ -5,8 +5,8 @@ date: '2024-09-24'
 author: 'Danny Grimmig'
 tags: ['java', 'clean code', 'backend']
 image: 
-    src: ""
-    citation: 'n/a'
+    src: "https://miro.medium.com/v2/resize:fit:1400/1*XOMTPWTpDLypkp079p9XXg.png"
+    citation: 'BGL Tech via Medium'
 ---
 First sentance goes here wohoo
 
